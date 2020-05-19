@@ -98,3 +98,4 @@ MonoBehaviour:
   padding: 0.7
   objectLaser: {fileID: 1942951296638120815, guid: a70f7db22dc184c478a57f81a878d31d,
     type: 3}
+  rateOfFire: 5

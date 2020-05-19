@@ -10,14 +10,17 @@ public class Player : MonoBehaviour
     float padding = 1;
     [SerializeField]
     GameObject objectLaser;
+    [SerializeField]
+    float rateOfFire;
     Vector2 minV, maxV;
+    Coroutine firingCoroutine;
     // Start is called before the first frame update
     void Start()
     {
-        Camera mainCam = Camera.main;
-        minV = mainCam.ViewportToWorldPoint(new Vector2(0, 0)) + new Vector3(padding,padding);
-        maxV = mainCam.ViewportToWorldPoint(new Vector2(1, 1)) - new Vector3(padding, padding);
+        GetViewBound();
     }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -25,11 +28,23 @@ public class Player : MonoBehaviour
         Move();
         Fire();
     }
+    IEnumerator FireContinuously()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1/rateOfFire);
+            Instantiate(objectLaser, transform.position, Quaternion.identity);
+        }
+    }
     private void Fire()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            Instantiate(objectLaser,transform.position,Quaternion.identity);
+            firingCoroutine = StartCoroutine(FireContinuously());
+        }
+        if (Input.GetButtonUp("Fire1"))
+        {           
+            StopCoroutine(firingCoroutine);
         }
     }
     private void Move()
@@ -40,5 +55,11 @@ public class Player : MonoBehaviour
         var deltaY = Time.deltaTime * Input.GetAxis("Vertical") * Velocity;
         var newYPos = Mathf.Clamp(transform.position.y + deltaY,minV.y,maxV.y);
         transform.position = new Vector2(newXPos, newYPos);
+    }
+    private void GetViewBound()
+    {
+        Camera mainCam = Camera.main;
+        minV = mainCam.ViewportToWorldPoint(new Vector2(0, 0)) + new Vector3(padding, padding);
+        maxV = mainCam.ViewportToWorldPoint(new Vector2(1, 1)) - new Vector3(padding, padding);
     }
 }
