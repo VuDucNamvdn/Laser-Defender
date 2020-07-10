@@ -19,9 +19,6 @@ public class Player : MonoBehaviour
     {
         GetViewBound();
     }
-
-    
-
     // Update is called once per frame
     void Update()
     {
