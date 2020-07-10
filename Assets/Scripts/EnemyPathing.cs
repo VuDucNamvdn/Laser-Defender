@@ -11,7 +11,7 @@ public class EnemyPathing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        waypoints = wave.getWatPoint();
+        waypoints = wave.getWayPoint();
         transform.position = waypoints[waypointIndex].transform.position;
         waypointIndex++;
     }
@@ -29,6 +29,6 @@ public class EnemyPathing : MonoBehaviour
                 waypointIndex++;
         }
         else
-            waypointIndex = 0;
+            Destroy(gameObject);
     }
 }

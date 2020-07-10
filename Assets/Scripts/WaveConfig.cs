@@ -15,7 +15,7 @@ public class WaveConfig : ScriptableObject
     {
         return enemyPrefab;
     }
-    public List<Transform> getWatPoint()
+    public List<Transform> getWayPoint()
     {
         List<Transform> waypoints = new List<Transform>();
         foreach (Transform t in pathPrefab.transform)
