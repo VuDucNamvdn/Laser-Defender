@@ -9,12 +9,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (waveConfigs.Count>startingWave)
-        {
-            WaveConfig currentWave = waveConfigs[startingWave];
-            StartCoroutine(SpawnEnemiesInWave(currentWave));
-        }
-            
+        StartCoroutine(SpawnAllWave());
     }
 
     private IEnumerator SpawnEnemiesInWave(WaveConfig waveConfig)
@@ -27,9 +22,13 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator SpawnAllWave()
     {
-        
+        for(int index = startingWave;index<waveConfigs.Count;index++)
+        {
+            WaveConfig currentWave = waveConfigs[index];
+            yield return StartCoroutine(SpawnEnemiesInWave(currentWave));
+        }
     }
+
 }
