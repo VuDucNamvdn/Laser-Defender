@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     {
         Move();
         Fire();
+        SetTimeSpeed();
     }
     IEnumerator FireContinuously()
     {
@@ -52,6 +53,18 @@ public class Player : MonoBehaviour
         var deltaY = Time.deltaTime * Input.GetAxis("Vertical") * Velocity;
         var newYPos = Mathf.Clamp(transform.position.y + deltaY,minV.y,maxV.y);
         transform.position = new Vector2(newXPos, newYPos);
+    }
+    private void SetTimeSpeed()
+    {
+        if (Input.GetButtonDown("SpeedUp"))
+        {
+            Time.timeScale = 20f;
+            Debug.Log("Pressed");
+        }
+        if (Input.GetButtonUp("SpeedUp"))
+        {
+            Time.timeScale = 1f;
+        }
     }
     private void GetViewBound()
     {
