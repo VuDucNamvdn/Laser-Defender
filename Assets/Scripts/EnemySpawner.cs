@@ -22,7 +22,8 @@ public class EnemySpawner : MonoBehaviour
         for(int i = 0; i<waveConfig.getNumberOfEnemies();i++)
         {
             yield return new WaitForSeconds(waveConfig.getDeltaTimeSpawns());
-            Instantiate(waveConfig.getEnemy(), waveConfig.getWayPoint()[0].transform.position, Quaternion.identity);
+            Instantiate(waveConfig.getEnemy(), waveConfig.getWayPoint()[0].transform.position, Quaternion.identity).GetComponent<EnemyPathing>().SetWaveConfig(waveConfig);
+
         }
     }
 
