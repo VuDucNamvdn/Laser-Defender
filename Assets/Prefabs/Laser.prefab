@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8075bc141b0de9848a73c2ae5c1989b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
 --- !u!50 &-2892859139053503472
 Rigidbody2D:
   serializedVersion: 4
@@ -143,7 +142,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.09, y: 0.37}
+  m_Size: {x: 0.2, y: 0.4}
   m_EdgeRadius: 0
 --- !u!114 &898222998049112723
 MonoBehaviour:
@@ -157,4 +156,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbcb7006066e5a949ba40fa02eff2e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 100
+  Damage: 250
