@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5169589158051026666}
   - component: {fileID: 5169589158051026664}
   - component: {fileID: -6589124342996609501}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,11 +97,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Velocity: 10
   padding: 0.7
+  health: 1000
   objectLaser: {fileID: 1942951296638120815, guid: a70f7db22dc184c478a57f81a878d31d,
     type: 3}
-  rateOfFire: 15
-  health: 1000
-  speed: 10
+  rateOfFire: 8
+  projectileSpeed: 15
 --- !u!58 &-6589124342996609501
 CircleCollider2D:
   m_ObjectHideFlags: 0

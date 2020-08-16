@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2892859139053503472}
   - component: {fileID: 898222998049112723}
   - component: {fileID: 4161235898098592907}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Laser 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbcb7006066e5a949ba40fa02eff2e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 100
 --- !u!58 &4161235898098592907
 CircleCollider2D:
   m_ObjectHideFlags: 0

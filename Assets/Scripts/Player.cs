@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Player")]
     [Range(1,1000)][SerializeField] int Velocity=1;
+
     [SerializeField] float padding = 1;
+    [SerializeField] int health = 1000;
+    [Header("Projectile")]
     [SerializeField] GameObject objectLaser;
     [SerializeField] float rateOfFire = 10;
-    [SerializeField] int health = 1000;
-    [SerializeField] float speed = 10;
+    [SerializeField] float projectileSpeed = 10;
+
+
+
+
     Vector2 minV, maxV;
     Coroutine firingCoroutine;
     // Start is called before the first frame update
@@ -29,7 +36,8 @@ public class Player : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1/rateOfFire);
-            Instantiate(objectLaser, transform.position, Quaternion.identity).GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
+            var laser = Instantiate(objectLaser, transform.position, Quaternion.identity);
+            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
         }
     }
     private void Fire()
@@ -73,6 +81,19 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(gameObject);
+        DamageDealer dealer = other.gameObject.GetComponent<DamageDealer>();
+        if (!dealer)
+            return;
+        ProcessHit(dealer);
+    }
+
+    private void ProcessHit(DamageDealer dealer)
+    {
+        health -= dealer.getDamgage();
+        dealer.Hit();
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
