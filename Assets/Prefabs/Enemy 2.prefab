@@ -114,7 +114,12 @@ MonoBehaviour:
   projectile: {fileID: 1942951296638120815, guid: de6b3965c67de304c998862672c3a011,
     type: 3}
   projectileSpeed: 10
-  laserTag: Enemy
+  shotSFX: {fileID: 8300000, guid: 21621a793bd145d42a61f4fc7761dd7d, type: 3}
+  deathVFX: {fileID: 8371911215030407552, guid: 215c6f914b5a3f14a868d3cbceb38f3c,
+    type: 3}
+  fxTime: 1.5
+  deathSFX: {fileID: 8300000, guid: 36506d01af9a9f34d8debbdcaee4b98b, type: 3}
+  deathVolume: 100
 --- !u!61 &722569668489927928
 BoxCollider2D:
   m_ObjectHideFlags: 0

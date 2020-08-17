@@ -102,6 +102,12 @@ MonoBehaviour:
     type: 3}
   rateOfFire: 8
   projectileSpeed: 15
+  shotSFX: {fileID: 8300000, guid: 80894fc86be58234a94dc7698a7b4682, type: 3}
+  deathVFX: {fileID: 8371911215030407552, guid: 215c6f914b5a3f14a868d3cbceb38f3c,
+    type: 3}
+  fxTime: 1
+  deathSFX: {fileID: 8300000, guid: 36506d01af9a9f34d8debbdcaee4b98b, type: 3}
+  deathVolume: 100
 --- !u!58 &-6589124342996609501
 CircleCollider2D:
   m_ObjectHideFlags: 0

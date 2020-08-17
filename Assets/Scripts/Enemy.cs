@@ -5,12 +5,23 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField] int health = 100;
     [SerializeField] float minTimeBetweenShots = 1;
     [SerializeField] float maxTimeBetweenShots = 3;
 
+    [Header("Projectile")]
     [SerializeField] GameObject projectile;
     [SerializeField] float projectileSpeed = 10f;
+    [SerializeField] AudioClip shotSFX;
+    [SerializeField] [Range(0, 1)] float shotVolume = 0.5f;
+
+    [Header("Death")]
+    [SerializeField] GameObject deathVFX;
+    [SerializeField] float fxTime = 1;
+    [SerializeField] AudioClip deathSFX;
+    [SerializeField] [Range(0, 1)] float deathVolume = 1;
+
     float shotCounter = 0;
     // Start is called before the first frame update
     void Start()
@@ -38,6 +49,7 @@ public class Enemy : MonoBehaviour
     {
         var laser = Instantiate(projectile, transform.position, Quaternion.identity);
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
+        AudioSource.PlayClipAtPoint(shotSFX, Camera.main.transform.position, shotVolume);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -54,9 +66,17 @@ public class Enemy : MonoBehaviour
         dealer.Hit();
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
     }
+
+    private void Die()
+    {
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathVolume);
+        Destroy(Instantiate(deathVFX, transform.position, Quaternion.identity).gameObject, fxTime);
+        Destroy(gameObject);
+    }
+
     public int getHealth()
     {
         return health;
