@@ -103,11 +103,13 @@ MonoBehaviour:
   rateOfFire: 8
   projectileSpeed: 15
   shotSFX: {fileID: 8300000, guid: 80894fc86be58234a94dc7698a7b4682, type: 3}
+  shotVolume: 0.2
   deathVFX: {fileID: 8371911215030407552, guid: 215c6f914b5a3f14a868d3cbceb38f3c,
     type: 3}
   fxTime: 1
   deathSFX: {fileID: 8300000, guid: 36506d01af9a9f34d8debbdcaee4b98b, type: 3}
-  deathVolume: 100
+  deathVolume: 1
+  l: {fileID: 9019555605380591694, guid: fe6f6bbbd89fbff4cb46df5324e634b2, type: 3}
 --- !u!58 &-6589124342996609501
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -118,7 +120,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

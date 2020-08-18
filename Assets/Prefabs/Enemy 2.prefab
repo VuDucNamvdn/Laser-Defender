@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: -3249733910141806813}
   - component: {fileID: -5339356000340560394}
   - component: {fileID: 722569668489927928}
+  - component: {fileID: -8909200106504847696}
+  - component: {fileID: -3029699304443300342}
   m_Layer: 9
   m_Name: Enemy 2
   m_TagString: Untagged
@@ -115,6 +117,7 @@ MonoBehaviour:
     type: 3}
   projectileSpeed: 10
   shotSFX: {fileID: 8300000, guid: 21621a793bd145d42a61f4fc7761dd7d, type: 3}
+  shotVolume: 0.2
   deathVFX: {fileID: 8371911215030407552, guid: 215c6f914b5a3f14a868d3cbceb38f3c,
     type: 3}
   fxTime: 1.5
@@ -146,3 +149,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.82, y: 0.84}
   m_EdgeRadius: 0
+--- !u!50 &-8909200106504847696
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540942854825933144}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &-3029699304443300342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540942854825933144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbcb7006066e5a949ba40fa02eff2e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 3000
