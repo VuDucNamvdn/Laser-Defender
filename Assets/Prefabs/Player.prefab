@@ -109,7 +109,6 @@ MonoBehaviour:
   fxTime: 1
   deathSFX: {fileID: 8300000, guid: 36506d01af9a9f34d8debbdcaee4b98b, type: 3}
   deathVolume: 1
-  l: {fileID: 9019555605380591694, guid: fe6f6bbbd89fbff4cb46df5324e634b2, type: 3}
 --- !u!58 &-6589124342996609501
 CircleCollider2D:
   m_ObjectHideFlags: 0

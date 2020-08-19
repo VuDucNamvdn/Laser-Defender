@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float fxTime = 1;
     [SerializeField] AudioClip deathSFX;
     [SerializeField] [Range(0, 1)] float deathVolume = 1;
+    [SerializeField] int point = 100;
 
     float shotCounter = 0;
     // Start is called before the first frame update
@@ -74,6 +75,7 @@ public class Enemy : MonoBehaviour
     {
         AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathVolume);
         Destroy(Instantiate(deathVFX, transform.position, Quaternion.identity).gameObject, fxTime);
+        FindObjectOfType<GameSession>().addScore(point);
         Destroy(gameObject);
     }
 
